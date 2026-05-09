@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background: white;
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    img {
+        max-width: 100%;
+        display: block;
+    }
+
+    /*==================NAVBAR===========*/
+
+    .pointer {
+        cursor: pointer;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        color: white;
+        padding: 15px 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        display: none;
+        list-style: none;
+        width: 220px;
+        background: #e1e6ee;
+        padding: 0;
+        margin: 0;
+        border-radius: 9px;
+        border: 1px solid rgb(231, 231, 168);
+        position: absolute;
+        right: 20px;
+        top: 70px;
+        transition: 0.3s ease;
+        overflow: hidden;
+        z-index: 1000;
+    }
+
+    .nav-links li {
+        color: black;
+        background: #6b84b3;
+        width: 100%;
+        padding: 15px;
+        border-bottom: 1px solid rgb(226, 212, 187);
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .nav-links li:hover {
+        background: #b9c8e4;
+        transform: translateY(-2px);
+    }
+
+    .nav-links li a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    /*=================ABOUT=====================*/
+
+    .about-us {
+        display: none;
+        flex-direction: column;
+        width: 40%;
+        min-height: 60vh;
+        background: #e4e8f0;
+        position: absolute;
+        padding: 15px;
+        border-radius: 15px;
+        z-index: 1000;
+    }
+
+    .about-us p {
+        margin: 10px 0;
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    .about-us h2 {
+        margin: 0;
+    }
+
+    .about-us-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background: #a2abca;
+        padding: 10px 15px;
+        width: 100%;
+        border-radius: 10px;
+        border-bottom: 2px solid rgb(211, 187, 187);
+    }
+
+    #circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgb(46, 123, 133);
+        font-size: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+    }
+
+    /*=================UPPER=====================*/
+
+    .upper-main {
+        background: rgb(252, 247, 247);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px;
+        min-height: 20vh;
+        width: 100%;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        gap: 20px;
+    }
+
+    .upper-main-logo,
+    .upper-main-text {
+        width: 33%;
+    }
+
+    .upper-main-logo img{
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .upper-main-logo {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+
+    .upper-main-text {
+        text-align: center;
+    }
+
+    .upper-main-text h2 {
+        font-size: 25px;
+    }
+
+    /*=================CARD=====================*/
+
+    .card {
+        display: flex;
+        width: 98%;
+        min-height: 90vh;
+        margin: 20px auto;
+        border-radius: 10px;
+        gap: 15px;
+    }
+
+    .card-image {
+        width: 60%;
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 10px;
+    }
+
+        .card-image p{
+            padding: 10px;
+            background: #a6f0ec;
+            border-radius: 10px;
+font-size: 20px;
+    }
+    .card-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        background: rgb(68, 93, 201);
+        padding: 10px;
+
+    }
+
+    .card-text {
+        width: 40%;
+        background: rgb(220, 226, 231);
+        border-radius: 20px;
+        padding: 15px;
+    }
+
+    .card-text h2,
+    .about-us h2 {
+        text-align: center;
+        font-size: 35px;
+    }
+
+    .card-image h2 {
+        text-align: center;
+        font-size: 32px;
+        color: rgb(32, 31, 31);
+        background: #2563eb;
+        border-radius: 10px;
+    }
+
+    .card-text-reason {
+        width: 100%;
+        margin-bottom: 15px;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 15px;
+    }
+
+    .card-text-reason h3 {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .card-text-reason p {
+        width: 100%;
+        font-size: 18px;
+        padding: 12px;
+        border-radius: 15px;
+        line-height: 1.6;
+    }
+
+    /*=================CARD MINOR=====================*/
+
+    .card-minor {
+        margin: 25px auto;
+        display: flex;
+        width: 98%;
+        min-height: 60vh;
+        gap: 15px;
+    }
+
+    .card-minor-text {
+        width: 40%;
+        border-radius: 25px;
+        background: inherit;
+    }
+
+    .card-minor-text h2 {
+        text-align: center;
+        font-size: 32px;
+    }
+
+    .card-minor-text p {
+        width: 90%;
+        border-radius: 15px;
+        margin: 15px auto;
+        font-size: 18px;
+        padding: 15px;
+        line-height: 1.5;
+    }
+
+    .card-minor-image {
+        width: 60%;
+        background: rgb(235, 235, 241);
+        border-radius: 15px;
+        overflow: hidden;
+        padding: 10px;
+    }
+
+    .card-minor-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+    }
+
+    /*=================POPULAR LINKS=====================*/
+
+    .popular-links {
+        width: 90%;
+        margin: 40px auto;
+        padding: 25px;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .popular-links-haeding h2 {
+        font-size: 28px;
+        color: #222;
+        margin-bottom: 25px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .popular-link-major {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .popular-link-content-lef {
+        flex: 1;
+        min-width: 250px;
+    }
+
+    .popular-link-content-lef p {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 14px 18px;
+        margin: 12px 0;
+        background: #f7f9fc;
+        border-radius: 14px;
+        transition: 0.3s ease;
+        cursor: pointer;
+    }
+
+    .popular-link-content-lef p:hover {
+        transform: translateY(-3px);
+        background: #eef4ff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .popular-link-content-lef img {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .popular-link-content-lef a {
+        text-decoration: none;
+        color: #222;
+        font-size: 16px;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    .popular-link-content-lef a:hover {
+        color: #2563eb;
+    }
+
+    /*=================ICONS=====================*/
+
+    .cart-icon,
+    .material-symbols-outlined,
+    .login-icom {
+        font-size: 70px;
+        margin: 0;
+    }
+
+    /*=================COLORS=====================*/
+
+    .green {
+        background: rgb(230, 235, 230);
+    }
+
+    .yellow {
+        background: rgb(238, 238, 233);
+    }
+
+    .red {
+        background: rgb(247, 243, 243);
+    }
+
+    .cyan {
+        background: rgb(132, 248, 248);
+    }
+
+    .font-larger {
+        font-size: 25px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /*=================TABLET=====================*/
+
+    @media (max-width: 992px) {
+
+        .card,
+        .card-minor {
+            flex-direction: column;
+        }
+
+        .card-image,
+        .card-text,
+        .card-minor-text,
+        .card-minor-image {
+            width: 100%;
+        }
+
+        .about-us {
+            width: 80%;
+            left: 10%;
+        }
+
+        .upper-main-text h2 {
+            font-size: 26px;
+        }
+
+        .card-text h2,
+        .card-minor-text h2 {
+            font-size: 28px;
+        }
+    }
+
+    /*=================MOBILE=====================*/
+
+    @media(max-width: 768px) {
+
+        .navbar {
+            padding: 12px 15px;
+        }
+
+        .font-larger {
+            font-size: 20px;
+        }
+
+        .upper-main {
+            flex-direction: column;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        .upper-main-logo,
+        .upper-main-image,
+        .upper-main-text {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .upper-main-logo img,
+        .upper-main-image img {
+            width: 90px;
+            height: 90px;
+            margin: auto;
+        }
+
+        .upper-main-text h2 {
+            font-size: 24px;
+        }
+
+        .card {
+            width: 95%;
+            min-height: auto;
+        }
+
+        .card-image h2,
+        .card-text h2 {
+            font-size: 25px;
+        }
+
+        .card-text-reason h3 {
+            font-size: 20px;
+        }
+
+        .card-text-reason p,
+        .card-minor-text p {
+            font-size: 16px;
+        }
+
+        .card-minor {
+            width: 95%;
+            min-height: auto;
+        }
+
+        .card-minor-text h2 {
+            font-size: 25px;
+        }
+
+        .popular-links {
+            width: 95%;
+            padding: 18px;
+        }
+
+        .popular-links-haeding h2 {
+            font-size: 22px;
+        }
+
+        .popular-link-content-lef p {
+            padding: 12px;
+        }
+
+        .popular-link-content-lef a {
+            font-size: 15px;
+        }
+
+        .about-us {
+            width: 95%;
+            left: 2.5%;
+            min-height: auto;
+        }
+
+        .about-us p {
+            font-size: 16px;
+        }
+
+        .cart-icon,
+        .material-symbols-outlined,
+        .login-icom {
+            font-size: 50px;
+        }
+
+        .nav-links {
+            width: 85%;
+            right: 7%;
+        }
+    }
+
+    /*=================SMALL MOBILE=====================*/
+
+    @media(max-width: 480px) {
+
+        .upper-main-text h2 {
+            font-size: 20px;
+        }
+
+        .card-image h2,
+        .card-text h2,
+        .card-minor-text h2 {
+            font-size: 22px;
+        }
+
+        .card-text-reason h3 {
+            font-size: 18px;
+        }
+
+        .card-text-reason p,
+        .card-minor-text p {
+            font-size: 15px;
+            padding: 12px;
+        }
+
+        .popular-links-haeding h2 {
+            font-size: 20px;
+        }
+
+        .popular-link-content-lef a {
+            font-size: 14px;
+        }
+    }
+.services-heading{
+    background: #96a1ca;
+    width: 90%;
+    height: 70px;
+    border-radius: 10px;
+    margin: 0 0 0 5%;
+    text-align: center;
+    font-size: 30px;
+}
+/*=============FOOTER==============*/
+.footer {
+    width: 100%;
+    height: 160px;
+    background: #222;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 4px 6px;
+    gap: 45%;
+    flex-wrap: wrap;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-left,
+.footer-right {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.footer p {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    margin: 12px 0;
+    color: #d6d6d6;
+}
+
+.footer i {
+    font-size: 20px;
+    color: #4da3ff;
+    transition: 0.3s ease;
+}
+
+.footer p:hover i {
+    transform: scale(1.1);
+}
+
+@media(max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+
+    .footer h3 {
+        font-size: 22px;
+    }
+
+    .footer p {
+        font-size: 15px;
+    }
+}
+</style>
+    
+</style>
+
+<body>
+    <nav class="navbar">
+        <div class="logo font-larger">siwiti <b>webdev</b></div>
+        <p class="pointer">
+            <i class="fa-solid fa-house-chimney"></i> <span data-key="home">Home</span>
+        </p>
+        <i class="fas fa-bars" onclick="showMenu(52, 85, 'nav-links')"></i>
+
+    </nav>
+
+    <div class="main">
+
+        <!-- HIDDEN -->
+        <!-- The Links -->
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li onclick="showMenu(40, 50, 'about-us')">About Us</li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <!-- ABOUT US -->
+        <div class="about-us" id="about-us">
+            <div class="about-us-header">
+                <i class="fa-solid fa-chevron-left" id="circle"
+                    onclick="showMenu(80, 55, 'about-us')"></i>
+                <h2>Welcome to Our Platform</h2>
+
+            </div>
+
+            <p>This is a modern online space designed to provide quality products and smooth digital experiences for
+                everyone.</p>
+
+            <p>We focus on delivering reliable services, user-friendly designs, and fast performance to help customers
+                easily find what they need. Our mission is to combine technology and creativity to create websites and
+                solutions that are simple, secure, and efficient.</p>
+
+            <p>Whether you are shopping, exploring services, or connecting with us, we are committed to giving you the
+                best experience possible.</p>
+
+            <p>Thank you for visiting and being part of our journey.</p>
+        </div>
+
+        <div class="upper-main">
+            <div class="upper-main-logo">
+                <img src="./images/logo.png">
+            </div>
+
+            <div class="upper-main-text">
+                <h2>Get services related to web development</h2>
+            </div>
+
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <h2>WEBSITE DEVELOPMENT</h2>
+                <img src="./images/advertise.png">
+
+
+<p>
+    We create modern, responsive, and professional websites designed to help your business grow online. From
+    e-commerce platforms and registration systems to secure login pages and custom web applications, we focus on
+    delivering fast performance, attractive design, and smooth user experience across all devices.
+</p> 
+<p>We also develop school and college result management systems, blog websites, and other custom digital solutions tailored to your
+    needs. Our goal is to turn your ideas into powerful, secure, and effective online platforms.</p>
+
+            </div>
+
+            <div class="card-text">
+                <h2>Why Choose Us</h2>
+
+                <div class="card-text-reason">
+                    <h3>Responsive Web Design</h3>
+                    <p class="green">We design websites that fit all screen sizes, including computers, tablets, and
+                        mobile phones.</p>
+                </div>
+
+                <div class="card-text-reason">
+                    <h3>Pixel-Perfect Precision</h3>
+                    <p class="green">We don't just build sites; we craft digital experiences with flawless CSS and
+                        responsive layouts.</p>
+                </div>
+
+                <div class="card-text-reason">
+                    <h3>Future-Proof Development</h3>
+                    <p class="green">Using the latest technologies like React and Python to ensure your site grows as
+                        your business grows.</p>
+                </div>
+
+                <div class="card-text-reason">
+                    <h3>Data-Driven Security</h3>
+                    <p class="green">We implement industry-standard protocols to keep your content and customers
+                        safe.</p>
+                </div>
+
+            </div>
+        </div>
+
+<div class="services-heading"><i class="fa-solid fa-handshake"></i> Services we offer</div>
+
+        <div class="card-minor">
+            <div class="card-minor-text">
+                <h2>E-Commerce Websites</h2>
+                <p id="cart-icon"><i class="fa-solid fa-cart-shopping cart-icon"></i></p>
+
+                <p class="red">Shop Anytime, Anywhere</p>
+                <p class="green">Easy Navigation & Smart Layout</p>
+                <p class="yellow">Fast and Secure Online Shopping</p>
+                <p class="green">Custom Designs That Match Your Brand</p>
+            </div>
+
+            <div class="card-minor-image">
+                <img src="./images/ecommerce.png">
+            </div>
+
+        </div>
+
+        <div class="card-minor">
+            <div class="card-minor-text">
+                <h2 class="cyan">Registration Forms</h2>
+
+                <span class="material-symbols-outlined">person_add</span>
+
+                <p class="green">Professional registration platforms built for speed and security.</p>
+                <p class="yellow">Smart online registration made simple.</p>
+                <p class="green">Fast and easy online registration systems.</p>
+                <p class="yellow">Digital registration solutions for modern businesses.</p>
+
+                <p class="red">Users can order products online.</p>
+                <p class="green">Customers can choose products easily.</p>
+                <p class="yellow">Admins are notified about requested goods.</p>
+            </div>
+
+            <div class="card-minor-image">
+                <img src="./images/registration-form.png">
+            </div>
+
+        </div>
+
+        <div class="card-minor">
+            <div class="card-minor-text">
+                <h2>Login System</h2>
+
+                <p><i class="fa-solid fa-right-to-bracket login-icom"></i></p>
+
+                <p class="green">Simple sign-in processes with strong security.</p>
+                <p class="yellow">Reliable user access systems.</p>
+                <p class="green">Advanced login and user authentication solutions.</p>
+                <p class="yellow">Secure and professional login systems for modern websites.</p>
+            </div>
+
+            <div class="card-minor-image">
+                <img src="./images/login-systemm.png">
+            </div>
+
+        </div>
+
+        <div class="popular-links">
+            <div class="popular-links-haeding">
+                <h2>Popular Sites</h2>
+            </div>
+
+            <div class="popular-link-major">
+
+                <div class="popular-link-content-lef">
+
+                    <p>
+                        <img src="https://www.google.com/s2/favicons?domain=w3schools.com&sz=32" alt="icon">
+                        <a href="">W3Schools</a>
+                    </p>
+
+                    <p>
+                        <img src="https://icons.duckduckgo.com/ip3/github.com.ico" alt="GitHub icon">
+                        <a href="">GitHub</a>
+                    </p>
+
+                    <p>
+                        <img src="https://must.ac.tz/assets/images/must-logo.png" alt="icon">
+                        <a href="">MUST</a>
+                    </p>
+
+                    <p>
+                        <img src="https://www.necta.go.tz/img/logo.png?1722415484" alt="icon">
+                        <a href="">NECTA</a>
+                    </p>
+
+                    <p>
+                        <img src="https://www.google.com/s2/favicons?domain=heslb.go.tz&sz=64" alt="icon">
+                        <a href="">HESLB</a>
+                    </p>
+
+
+                </div>
+
+                <div class="popular-link-content-lef">
+
+
+                    <p>
+                        <img src="https://www.google.com/s2/favicons?domain=tcu.go.tz&sz=64" alt="icon">
+                        <a href="">TCU</a>
+                    </p>
+                    <p>
+                        <img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=64" alt="icon">
+                        <a href="">YouTube</a>
+                    </p>
+
+                    <p>
+                        <img src="https://www.google.com/s2/favicons?domain=facebook.com&sz=64" alt="icon">
+                        <a href="">Facebook</a>
+                    </p>
+
+                    <p>
+                        <img src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=64" alt="icon">
+                        <a href="">LinkedIn</a>
+                    </p>
+
+                    <p>
+                        <img src="https://www.google.com/s2/favicons?domain=wikipedia.org&sz=64" alt="icon">
+                        <a href="">Wikipedia</a>
+                    </p>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="footer">
+
+    <div class="footer-left">
+        <h3>Contacts</h3>
+
+        <p>
+            <i class="fa-solid fa-envelope"></i>
+            siwitiwebdev@gmail.com
+        </p>
+
+        <p>
+            <i class="fa-solid fa-phone"></i>
+            +255 700 000 000
+        </p>
+    </div>
+
+    <div class="footer-right">
+        <h3>Follow Us</h3>
+
+        <p>
+            <i class="fa-brands fa-facebook"></i>
+            Facebook
+        </p>
+
+        <p>
+            <i class="fa-brands fa-twitter"></i>
+            Twitter
+        </p>
+    </div>
+
+</div>
+
+</body>
+<script>
+    function showMenu(top, left, idd) {
+        let menu = document.getElementById(idd);
+        menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+        menu.style.left = `${left}%`;
+        menu.style.top = `${top}px`;
+    }
+</script>
+
+</html>
