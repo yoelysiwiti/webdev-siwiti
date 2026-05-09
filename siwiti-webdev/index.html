@@ -901,12 +901,18 @@ font-size: 20px;
 
 </body>
 <script>
-    function showMenu(top, left, idd) {
-        let menu = document.getElementById(idd);
-        menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-        menu.style.left = `${left}%`;
-        menu.style.top = `${top}px`;
+function showMenu(top, left, idd) {
+    let menu = document.getElementById(idd);
+
+    if (menu.style.display === "flex") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "flex";
+        menu.style.position = "absolute";
+        menu.style.left = left + "%";
+        menu.style.top = top + "px";
     }
+}
 </script>
 
 </html>
