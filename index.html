@@ -52,15 +52,15 @@
         flex-direction: column;
         display: none;
         list-style: none;
-        width: 220px;
+        width: 15%;
+        top: 8%;
+        left: 85%;
         background: #e1e6ee;
         padding: 0;
         margin: 0;
         border-radius: 9px;
         border: 1px solid rgb(231, 231, 168);
         position: absolute;
-        right: 20px;
-        top: 70px;
         transition: 0.3s ease;
         overflow: hidden;
         z-index: 1000;
@@ -96,6 +96,9 @@
         display: none;
         flex-direction: column;
         width: 40%;
+        top: 8%;
+        left: 45%;
+
         min-height: 60vh;
         background: #e4e8f0;
         position: absolute;
@@ -435,10 +438,14 @@ font-size: 20px;
 
         .navbar {
             padding: 12px 15px;
+            width: 100%;
+            height: 9vh;
         }
 
+        
+
         .font-larger {
-            font-size: 20px;
+            font-size: 18px;
         }
 
         .upper-main {
@@ -526,10 +533,12 @@ font-size: 20px;
             font-size: 50px;
         }
 
-        .nav-links {
-            width: 85%;
-            right: 7%;
-        }
+    .nav-links{
+        width: 55%;
+        right: 10px;
+        left: 45%;
+        top: 8%;
+    }
     }
 
     /*=================SMALL MOBILE=====================*/
@@ -622,7 +631,9 @@ font-size: 20px;
 @media(max-width: 768px) {
     .footer {
         flex-direction: column;
-        padding: 30px 20px;
+        height: 100%;
+        padding: 0;
+        margin: 0;
     }
 
     .footer h3 {
@@ -630,12 +641,11 @@ font-size: 20px;
     }
 
     .footer p {
-        font-size: 15px;
+        font-size: 12px;
     }
 }
 </style>
     
-</style>
 
 <body>
     <nav class="navbar">
@@ -643,7 +653,7 @@ font-size: 20px;
         <p class="pointer">
             <i class="fa-solid fa-house-chimney"></i> <span data-key="home">Home</span>
         </p>
-        <i class="fas fa-bars" onclick="showMenu(52, 85, 'nav-links')"></i>
+        <i class="fas fa-bars" onclick="showMenu('nav-links')"></i>
 
     </nav>
 
@@ -653,7 +663,7 @@ font-size: 20px;
         <!-- The Links -->
         <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li onclick="showMenu(40, 50, 'about-us')">About Us</li>
+            <li onclick="showMenu('about-us')">About Us</li>
             <li><a href="services.html">Services</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
@@ -662,7 +672,7 @@ font-size: 20px;
         <div class="about-us" id="about-us">
             <div class="about-us-header">
                 <i class="fa-solid fa-chevron-left" id="circle"
-                    onclick="showMenu(80, 55, 'about-us')"></i>
+                    onclick="showMenu('about-us')"></i>
                 <h2>Welcome to Our Platform</h2>
 
             </div>
@@ -807,27 +817,27 @@ font-size: 20px;
 
                     <p>
                         <img src="https://www.google.com/s2/favicons?domain=w3schools.com&sz=32" alt="icon">
-                        <a href="">W3Schools</a>
+                        <a href="https://www.w3schools.com/">W3Schools</a>
                     </p>
 
                     <p>
                         <img src="https://icons.duckduckgo.com/ip3/github.com.ico" alt="GitHub icon">
-                        <a href="">GitHub</a>
+                        <a href="https://github.com/">GitHub</a>
                     </p>
 
                     <p>
                         <img src="https://must.ac.tz/assets/images/must-logo.png" alt="icon">
-                        <a href="">MUST</a>
+                        <a href="https://must.ac.tz/">MUST</a>
                     </p>
 
                     <p>
                         <img src="https://www.necta.go.tz/img/logo.png?1722415484" alt="icon">
-                        <a href="">NECTA</a>
+                        <a href="https://www.necta.go.tz/">NECTA</a>
                     </p>
 
                     <p>
                         <img src="https://www.google.com/s2/favicons?domain=heslb.go.tz&sz=64" alt="icon">
-                        <a href="">HESLB</a>
+                        <a href="https://olas.heslb.go.tz/">HESLB</a>
                     </p>
 
 
@@ -838,26 +848,26 @@ font-size: 20px;
 
                     <p>
                         <img src="https://www.google.com/s2/favicons?domain=tcu.go.tz&sz=64" alt="icon">
-                        <a href="">TCU</a>
+                        <a href="https://tcu.go.tz/">TCU</a>
                     </p>
                     <p>
                         <img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=64" alt="icon">
-                        <a href="">YouTube</a>
+                        <a href="https://www.youtube.com/">YouTube</a>
                     </p>
 
                     <p>
                         <img src="https://www.google.com/s2/favicons?domain=facebook.com&sz=64" alt="icon">
-                        <a href="">Facebook</a>
+                        <a href="https://www.facebook.com/">Facebook</a>
                     </p>
 
                     <p>
                         <img src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=64" alt="icon">
-                        <a href="">LinkedIn</a>
+                        <a href="https://www.linkedin.com/login">LinkedIn</a>
                     </p>
 
                     <p>
                         <img src="https://www.google.com/s2/favicons?domain=wikipedia.org&sz=64" alt="icon">
-                        <a href="">Wikipedia</a>
+                        <a href="https://www.wikipedia.org/">Wikipedia</a>
                     </p>
 
 
@@ -874,12 +884,11 @@ font-size: 20px;
 
         <p>
             <i class="fa-solid fa-envelope"></i>
-            siwitiwebdev@gmail.com
-        </p>
+yoelysiwiti2@gmail.com</p>
 
         <p>
             <i class="fa-solid fa-phone"></i>
-            +255 700 000 000
+            +255 742 804 034
         </p>
     </div>
 
@@ -901,12 +910,10 @@ font-size: 20px;
 
 </body>
 <script>
-    function showMenu(top, left, idd) {
+    function showMenu(idd) {
         let menu = document.getElementById(idd);
         menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-        menu.style.left = `${left}%`;
-        menu.style.top = `${top}px`;
-    }
+}
 </script>
 
 </html>
