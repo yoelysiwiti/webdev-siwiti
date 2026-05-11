@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Store</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      background: #f2f3f5;
+
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a192c;
+      border-bottom: 1px solid grey;
+      color: aliceblue;
+      padding: 10px 20px;
+    }
+
+    .navbar h1 {
+      font-size: 28px;
+      margin: 0;
+    }
+
+    /* SEARCH BAR */
+
+    .search-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 15px;
+      width: 100%;
+    }
+
+    .search-button {
+      display: flex;
+      align-items: center;
+      width: 40%;
+      min-width: 250px;
+      height: 50px;
+      border: 1px solid rgb(201, 195, 195);
+      border-radius: 10px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .menu-login {
+      display: none;
+      position: absolute;
+      flex-direction: column;
+      border-radius: 8px;
+      z-index: 1000;
+      width: 40%;
+      height: 55vh;
+      background: #d4f363;
+
+    }
+
+    .menu-login form {
+      background: #334155;
+    }
+
+    .menu-login label {
+      margin: 0 0 0 15vw;
+
+    }
+
+    .menu-login h2 {
+      text-align: center;
+    }
+
+    .menu-login input {
+      border-radius: 5px;
+      height: 5vh;
+      width: 18vw;
+      border: none;
+      margin: 0 0 0 13vw;
+    }
+
+    #submit {
+      height: 5vh;
+      width: 5vw;
+      border: none;
+      margin: 3vh 3vh 3vh 28vh;
+      border-radius: 5px;
+      background: rgb(136, 134, 245);
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 4vw;
+      padding: 0;
+      margin: 0 0 0 13vw;
+    }
+
+    .buttons button {
+      height: 5vh;
+      width: 9vw;
+      border-radius: 6px;
+    }
+
+    .form,
+    .search-button input {
+      width: 80%;
+      height: 100%;
+      border: none;
+      outline: none;
+      padding-left: 10px;
+      font-size: 16px;
+    }
+
+    .search-button button {
+      width: 20%;
+      height: 100%;
+      border: none;
+      background: rgba(36, 56, 85, 0.192);
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* MORE SERVICES */
+
+    .more-services {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 15px;
+    }
+
+    .pointer {
+      cursor: pointer;
+      text-align: center;
+    }
+
+    #profile,
+    #language,
+    #category,
+    #services {
+      width: 140px;
+      min-height: 45px;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    #profile,
+    #services {
+      background: #0907163d;
+    }
+
+    #language {
+      background: #354081a8;
+      color: #161616;
+    }
+
+    #category {
+      background: #160924f6;
+      color: #f6f6f8;
+    }
+
+    /* PRODUCTS */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 20px;
+      border-bottom: 1px solid rgb(255, 255, 255);
+      background: #ebecd9;
+
+
+    }
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      background: inherit;
+      border-radius: 13px;
+      overflow: hidden;
+      transition: all 0.3s;
+      min-height: 500px;
+    }
+
+    .product:hover {
+      transform: scale(1.03);
+      background: #e8ebf0;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 260px;
+      padding: 10px;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .product-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      background: inherit;
+      padding: 15px;
+    }
+
+    .product-text p {
+      font-size: 15px;
+      line-height: 1.5;
+      background: rgb(228, 228, 185);
+      border-radius: 5px;
+    }
+
+    /* CART BUTTONS */
+
+    .add-to-cart {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .add-to-cart button {
+      border-radius: 12px;
+      background: rgb(241, 227, 227);
+      min-width: 120px;
+      height: 45px;
+      border: 1px solid wheat;
+      cursor: pointer;
+      transition: 0.3s;
+      background: rgb(19, 236, 19);
+    }
+
+    .add-to-cart button:hover {
+      background: #d8dde4;
+    }
+
+    /* LINKS */
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* DROPDOWNS */
+
+    .dropdown,
+    .dropdown-language,
+    .menu-my-cart {
+      position: absolute;
+      display: none;
+      flex-direction: column;
+      border-radius: 8px;
+      z-index: 1000;
+    }
+
+    .dropdown {
+      background: #1e293b;
+      min-width: 180px;
+    }
+
+    .dropdown a {
+      padding: 12px;
+      color: white;
+      border-bottom: 1px solid #334155;
+    }
+
+    .dropdown a:hover {
+      background: #334155;
+    }
+
+    .dropdown-language {
+      background: #f0f2f5;
+      border: 1px solid grey;
+      min-width: 180px;
+      padding: 5px;
+    }
+
+    .dropdown-language p {
+      border-radius: 5px;
+      padding: 10px;
+      margin: 4px 0;
+      transition: 0.3s;
+
+    }
+
+    .dropdown-language p:hover {
+      transform: scale(1.02);
+      background: #0c337a;
+    }
+
+    /* COLORS */
+
+    .blue {
+      background: rgb(80, 150, 230);
+    }
+
+    .grey {
+      background: green;
+    }
+
+    /* CART */
+
+    .menu-my-cart {
+      background: #1e293b;
+      width: 40%;
+      max-height: 500px;
+      overflow-y: auto;
+      padding-bottom: 10px;
+      padding: 16px;
+    }
+
+    .product-in-cart,
+    .product-in-cart-text {
+      width: 100%;
+      background: rgb(248, 234, 34);
+      border-radius: 5px;
+    }
+
+    .product-in-cart {
+      border-bottom: 4px solid #1e293b;
+    }
+
+    .heading {
+      display: flex;
+      align-items: center;
+      background-color: rgb(10, 134, 150);
+      padding: 10px;
+      font-size: 17px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .heading h2 {
+      font-size: 18px;
+      padding-left: 10px;
+    }
+
+    #circle,
+    #circle-two {
+      background: rgb(41, 90, 136);
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      padding-top: 12px;
+      text-align: center;
+    }
+
+    /* ========================= */
+    /* TABLET RESPONSIVE */
+    /* ========================= */
+
+    @media (max-width: 992px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .search-button {
+        width: 60%;
+      }
+
+      .menu-my-cart {
+        width: 70%;
+      }
+    }
+
+    /* ========================= */
+    /* MOBILE RESPONSIVE */
+    /* ========================= */
+
+    @media (max-width: 768px) {
+
+      body {
+        padding-bottom: 90px;
+      }
+
+      /* NAVBAR */
+
+      .navbar {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .navbar h1 {
+        font-size: 24px;
+      }
+
+      /* KEEP LAPTOP STYLE */
+
+      .search-bar {
+        justify-content: center;
+        gap: 20px;
+        padding: 15px;
+      }
+
+      .search-button {
+        width: 95%;
+        min-width: unset;
+      }
+
+      .more-services {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      #profile,
+      #language,
+      #category,
+      #services {
+        width: 140px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 15px;
+        gap: 15px;
+      }
+
+      .product {
+        min-height: auto;
+      }
+
+      .product-img {
+        height: 220px;
+      }
+
+      .add-to-cart {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .add-to-cart button {
+        width: 100%;
+      }
+
+      /* FIXED BOTTOM MENU */
+
+      .search-bar p {
+        position: fixed;
+        bottom: 0;
+        background: #1a192c;
+        color: white;
+        height: 65px;
+        margin: 0;
+        width: 33.3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        border-top: 1px solid #444;
+      }
+
+      .search-bar p:nth-child(2) {
+        left: 0;
+      }
+
+      .search-bar p:nth-child(3) {
+        left: 33.3%;
+      }
+
+      .search-bar p:nth-child(4) {
+        right: 0;
+      }
+
+      .search-bar p i {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      /* MENUS */
+
+      .menu-my-cart {
+        width: 95%;
+        left: 2.5% !important;
+      }
+
+      .menu-login {
+        width: 95%;
+        min-width: unset;
+        left: 2.5% !important;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .heading h2 {
+        font-size: 15px;
+      }
+
+      #circle,
+      #circle-two {
+        width: 40px;
+        height: 40px;
+        padding-top: 10px;
+      }
+    }
+
+    /* ========================= */
+    /* SMALL MOBILE */
+    /* ========================= */
+
+    @media (max-width: 480px) {
+      .navbar h1 {
+        font-size: 20px;
+      }
+
+      .search-button input {
+        font-size: 14px;
+      }
+
+      .product-text p {
+        font-size: 14px;
+      }
+
+      .heading h2 {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <div class="navbar">
+    <h1>My Store</h1>
+  </div>
+
+  <!-- SEARCH BAR -->
+
+  <div class="search-bar">
+    <div class="search-button">
+      <input data-key="search" type="text" placeholder="Search products...">
+      <button onclick="searchProduct()">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+
+    <p class="pointer" onclick="toggleMenu(70, 55, 'menu-login')">
+
+      <i class="fa-solid fa-right-to-bracket"></i>
+      <span data-key="sign">Sign In</span>
+    </p>
+
+    <p onclick="displayCart()" class="pointer">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span data-key="mycart">My Cart
+      </span>
+    </p>
+
+    <p class="pointer">
+      <i class="fa-solid fa-house-chimney"></i> <span data-key="home">Home</span>
+    </p>
+
+  </div>
+
+  <!-- SERVICES -->
+
+  <div class="more-services">
+
+    <p onclick="toggleMenu(212, 24, 'menu')" class="pointer" id="category">
+      <i class="fa-solid fa-list"></i>
+      <span data-key="categories">All Categories</span>
+    </p>
+
+    <p class="pointer" id="profile"><i class="fa-solid fa-location-dot"> </i>
+      <span data-key="location">Location
+      </span>
+    </p>
+
+    <p id="services" class="pointer">
+      <i class="fa-solid fa-handshake"></i> <span data-key="services">Services</span>
+    </p>
+
+    <p class="pointer" id="profile">
+      <i class="fa-solid fa-user-gear"></i>
+      <span data-key="profile">Profile</span>
+    </p>
+
+    <p onclick="toggleMenu(219, 65, 'menu-language')" class="pointer" id="language">
+      <i class="fa-solid fa-globe"></i>
+      <br>
+      English
+    </p>
+
+  </div>
+
+  <!-- CATEGORY MENU -->
+
+  <div class="dropdown" id="menu">
+    <a href="#">Appliances</a>
+    <a href="#">Electronics</a>
+    <a href="#">Clothes</a>
+    <a href="#">Music</a>
+    <a href="#">Agriculture</a>
+    <a href="#">Chemicals</a>
+    <a href="#">Machines</a>
+    <a href="#">Tools</a>
+    <a href="#">Foods</a>
+  </div>
+
+  <!-- LANGUAGE MENU -->
+
+  <div class="dropdown-language" id="menu-language">
+
+    <p onclick="changeLanguage('en')" class="blue pointer">
+      English
+    </p>
+
+    <p onclick="changeLanguage('sw')" class="grey pointer">
+      Swahili
+    </p>
+
+    <p onclick="changeLanguage('fr')" class="blue pointer">
+      French
+    </p>
+    <p onclick="changeLanguage('ar')" class="grey pointer">
+      Arabic
+    </p>
+    <p onclick="changeLanguage('zh')" class="blue pointer">
+      Chinese </p>
+  </div>
+  <!-- LOGIN-->
+  <div id="menu-login" class="menu-login">
+    <h2>
+      <i class="fa-solid fa-chevron-left" id="circle-two" onclick="toggleMenu(80, 55, 'menu-login')"></i>
+      Fill Email and username bellow
+    </h2>
+    <form id="myForm">
+      <label for="email">Email</label><br>
+      <input type="email" name="email" id="email"><br>
+      <label for="password">Password</label><br>
+      <input type="password" name="password" id="password"><br><br>
+      <button id="submit">Submit</button><br><br>
+      <div class="buttons">
+        <button>Forgot Paswword</button>
+        <button>Create an account</button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- CART MENU -->
+  <div class="menu-my-cart" id="menu-my-cart">
+    <div class="cart">
+
+      <div class="heading">
+
+        <h2>
+          <i class="fa-solid fa-chevron-left" id="circle" onclick="toggleMenu(80, 55, 'menu-my-cart')"></i>
+
+          Items Added to Your Cart
+        </h2>
+
+      </div>
+
+      <div class="menu-my-cart-carts" id="menu-my-cart-carts">
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- PRODUCTS SECTION -->
+
+  <div class="products">
+
+    <!-- PRODUCT 1 -->
+
+    <div class="product" id="product1">
+
+      <div class="product-img">
+        <img src="./images/bs-laptop.jpg" alt="Laptop">
+      </div>
+
+      <div class="product-text">
+        <p id="pproduct1">
+
+          Powerful and modern laptop designed for programming, gaming, and everyday work.
+          It delivers fast performance and a smooth user experience.
+        </p>
+        <div class="add-to-cart">
+          <p><b>Tzs 600, 000</b></p>
+          <button onclick="addToCart('laptop', '1400, 000', './images/bs-laptop.jpg', 'pproduct1')">Add to Cart</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PRODUCT 2 -->
+
+    <div class="product" id="product2">
+
+      <div class="product-img">
+        <img src="./images/bs-pods.jpg" alt="Earbuds">
+      </div>
+
+      <div class="product-text ">
+
+        <p id="pproduct2">
+
+          High-quality wireless earbuds with deep bass and clear sound.
+          Perfect for music, gaming, and online meetings.
+        </p>
+
+        <div class="add-to-cart">
+          <p><b>Tzs 600, 000</b></p>
+          <button onclick="addToCart('earpuds', '1400, 0', './images/bs-pods.jpg', 'pproduct2')">Add to Cart</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PRODUCT 3 -->
+
+    <div class="product" id="product3">
+
+      <div class="product-img">
+        <img src="./images/bs-radio.jpg" alt="Radio">
+      </div>
+
+      <div class="product-text">
+
+        <p id="pproduct3">
+          Portable radio with excellent sound quality and strong signal reception.
+          Enjoy music, news, and sports anywhere.
+        </p>
+
+        <div class="add-to-cart">
+          <p><b>Tzs 600, 000</b></p>
+          <button onclick="addToCart('Radio', '70000', './images/bs-radio.jpg', 'pproduct3')">Add to Cart</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PRODUCT 4 -->
+
+    <div class="product" id="product4">
+
+      <div class="product-img">
+        <img src="./images/bs-headphone.jpg" alt="Headphones">
+      </div>
+
+      <div class="product-text">
+
+        <p id="pproduct4">
+          Comfortable wireless headphones with premium audio quality and soft cushions.
+          Ideal for long listening sessions and travel.
+        </p>
+
+        <div class="add-to-cart">
+          <p><b>Tzs 600, 000</b></p>
+          <button onclick="addToCart('headphones', 7000, './images/bs-headphone.jpg', 'pproduct4')">Add to Cart</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- SECOND PRODUCT ROW -->
+
+  <div class="products">
+
+    <!-- PRODUCT 5 -->
+
+    <div class="product" id="product5">
+
+      <div class="product-img">
+        <img src="./images/bs-bag.webp" alt="Bag">
+      </div>
+
+      <div class="product-text">
+
+        <p id="pproduct5">
+          Stylish and durable travel bag with multiple compartments.
+          Suitable for school, work, travel, and everyday use.
+        </p>
+
+        <div class="add-to-cart">
+          <p><b>Tzs 600, 000</b></p>
+          <button onclick="addToCart('bag', 20000,'./images/bs-bag.webp', 'pproduct5')">Add to Cart</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PRODUCT 6 -->
+
+    <div class="product" id="product6">
+
+      <div class="product-img">
+        <img src="./images/bs.tshirt.jpg" alt="T-Shirt">
+      </div>
+
+      <div class="product-text">
+
+        <p id="pproduct6">
+          Soft and breathable T-shirt made with quality fabric for maximum comfort.
+          Designed for casual and stylish wear.
+        </p>
+
+        <div class="add-to-cart">
+          <p><b>Tzs 600, 000</b></p>
+          <button onclick="addToCart('T-Shirt', 70000, './images/bs.tshirt.jpg', 'pproduct6')">Add to Cart</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PRODUCT 7 -->
+
+    <div class="product" id="product7">
+
+      <div class="product-img">
+        <img src="./images/bs-jacket.jpg" alt="Jacket">
+      </div>
+
+      <div class="product-text">
+
+        <p id="pproduct7">
+          Elegant jacket with a modern design that provides warmth and comfort.
+          Perfect for cold weather and outdoor activities.
+        </p>
+
+        <div class="add-to-cart">
+          <p><b>Tzs 600, 000</b></p>
+          <button onclick="addToCart('jacket', 30000, './images/bs-jacket.jpg', 'pproduct7')">Add to Cart</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PRODUCT 8 -->
+
+    <div class="product" id="product8">
+
+      <div class="product-img">
+        <img src="./images/bs-gawn.jpg" alt="Gown">
+      </div>
+
+      <div class="product-text">
+
+        <p id="pproduct8">
+          Beautiful gown designed for weddings, parties, and special occasions.
+          Elegant, comfortable, and fashionable.
+        </p>
+
+        <div class="add-to-cart">
+          <p><b>Tzs 600, 000</b></p>
+          <button onclick="addToCart('Gown', 300000, './images/bs-gawn.jpg', 'pproduct8')">Add to Cart</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+<script>
+  let cart = [];
+
+  function toggleMenu(top, left, idd) {
+    let menu = document.getElementById(idd);
+
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    menu.style.left = `${left}%`;
+    menu.style.top = `${top}px`;
+
+
+  }
+
+  function addToCart(name, price, image, idd) {
+
+    let text = document.getElementById(idd);
+
+    cart.push({
+      name: name,
+      price: price,
+      image: image,
+      para: text.textContent
+    });
+  }
+
+  function displayCart() {
+
+    toggleMenu(250, 50, 'menu-my-cart');
+
+    let cartContainer = document.getElementById("menu-my-cart-carts");
+
+    cartContainer.innerHTML = "";
+
+    cart.forEach(item => {
+
+      let cartItem = document.createElement("div");
+
+      cartItem.className = "cart-item";
+      cartItem.style.width = "80%";
+
+      cartItem.innerHTML = `
+            <img src="${item.image}" width="480">
+            <h3 background="red">${item.name}</h3>
+            <p>${item.para}</p>
+            <p>$${item.price}</p>
+        `;
+
+      cartContainer.appendChild(cartItem);
+    });
+  }
+
+
+  const translations = {
+
+    en: {
+      title: "My Store",
+      home: "Home",
+      services: "Services",
+      cartBtn: "Add to Cart",
+      location: "Location",
+      categories: "Category",
+      profile: "Profile",
+      sign: "Sign in",
+      mycart: "My cart",
+      search: "Search product..."
+    },
+
+    sw: {
+      title: "Duka Langu",
+      home: "Nyumbani",
+      services: "Huduma",
+      cartBtn: "Ongeza kwenye Kikapu",
+      location: "Eneo",
+      categories: "Vipengele",
+      profile: "Wasifu",
+      mycart: "Kikapu changu",
+      sign: "Ingia",
+      search: "Tafuta bidhaa..."
+    },
+
+    fr: {
+      title: "Mon Magasin",
+      home: "Accueil",
+      services: "Services",
+      cartBtn: "Ajouter au Panier",
+      location: "Emplacement",
+      categories: "Catégories",
+      profile: "Profil",
+      sign: "Se connecter",
+      mycart: "Mon panier",
+      search: "Rechercher un produit..."
+    },
+
+    ar: {
+      title: "متجري",
+      home: "الرئيسية",
+      services: "الخدمات",
+      cartBtn: "أضف إلى السلة",
+      location: "الموقع",
+      categories: "الفئات",
+      profile: "الملف الشخصي",
+      sign: "تسجيل الدخول",
+      mycart: "سلتي",
+      search: "ابحث عن منتج..."
+    },
+
+    zh: {
+      title: "我的商店",
+      home: "首页",
+      services: "服务",
+      cartBtn: "加入购物车",
+      location: "位置",
+      categories: "分类",
+      profile: "个人资料",
+      sign: "登录",
+      mycart: "我的购物车",
+      search: "搜索商品..."
+    },
+
+  };
+
+  function changeLanguage(language) {
+
+    const elements = document.querySelectorAll("[data-key]");
+
+    elements.forEach((element) => {
+
+      const key = element.getAttribute("data-key");
+
+      if (translations[language][key]) {
+        element.innerHTML = translations[language][key];
+      }
+
+    });
+
+  }
+</script>
+
+</html>
