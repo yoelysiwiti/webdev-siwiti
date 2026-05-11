@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration form</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+    line-height: 1.5;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgb(228, 234, 235);
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.navbar h2 {
+    font-size: 28px;
+    font-weight: bold;
+    background: #668bf3;
+    width: 30%;
+    height: auto;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* ================= MAIN CONTAINER ================= */
+
+.center {
+    width: min(90%, 900px);
+    margin: 110px auto 40px auto;
+    background: rgb(220, 232, 236);
+    border: 1px solid #d6d6d6;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.center h2 {
+    text-align: center;
+    margin-bottom: 35px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 30px;
+}
+
+/* ================= FIELDSET ================= */
+
+.frm {
+    border: 1px solid #cfcfcf;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    background: inherit;
+}
+
+.frm legend {
+    padding: 0 10px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* ================= LABELS ================= */
+
+label {
+    display: inline-block;
+    margin-bottom: 8px;
+    margin-top: 12px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* ================= INPUTS ================= */
+
+input {
+    width: 50%;
+    height: 45px;
+    padding: 0 12px;
+    border: none;
+    border-bottom: 1px solid #bdbdbd;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4b7bec;
+    box-shadow: 0 0 5px rgba(75, 123, 236, 0.3);
+}
+
+/* ================= CHECKBOX ================= */
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+    accent-color: #4b7bec;
+}
+
+/* ================= BUTTON ================= */
+
+button {
+    width: 180px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    background: #4b7bec;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #3867d6;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+    width: 100%;
+    height: 70px;
+    background: white;
+    border-top: 1px solid #ccc;
+    margin-top: 50px;
+}
+
+/* ================= RESPONSE DIV ================= */
+
+.result-style {
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    background: green;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 992px) {
+
+    .center {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .center h2 {
+        font-size: 26px;
+    }
+
+    .frm {
+        padding: 20px;
+    }
+
+    .frm legend {
+        font-size: 20px;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 60px;
+    }
+form input{
+        border: none;
+    border-bottom: 1px solid grey;
+}
+    .navbar h2 {
+        font-size: 22px;
+    }
+
+    .center {
+        margin-top: 85px;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .center h2 {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+
+    .frm {
+        padding: 15px;
+    }
+
+    .frm legend {
+        font-size: 18px;
+    }
+
+    label {
+        font-size: 15px;
+    }
+
+    input {
+        height: 42px;
+        font-size: 15px;
+    }
+
+    button {
+        width: 100%;
+        height: 48px;
+        font-size: 16px;
+    }
+
+    .result-style {
+        font-size: 22px;
+        padding: 20px;
+    }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 480px) {
+
+    .navbar h2 {
+        font-size: 20px;
+    }
+
+    .center {
+        width: 98%;
+        padding: 10px;
+    }
+
+    .center h2 {
+        font-size: 20px;
+    }
+
+    .frm {
+        padding: 12px;
+    }
+
+    .frm legend {
+        font-size: 16px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    button {
+        height: 45px;
+        font-size: 15px;
+    }
+
+    .result-style {
+        font-size: 18px;
+    }
+}
+    </style>
+</head>
+
+<body id="body">
+    <div class="navbar">
+        <h2>My website</h2>
+    </div>
+    <div class="center" id="receive-response">
+        <h2>Fill the form bellow</h2>
+        <form action="register.php" method="post" id="primary-form">
+            <fieldset class="frm">
+                <Legend><b>Personal information : </b></Legend>
+                <label for="fname">First name : </label><br>
+                <input type="text" id="fname" name="fname"><br>
+                <label for="lname">Last name : </label><br>
+                <input type="text" id="lname" name="lname"><br>
+                <label for="oname">Other name : </label><br>
+                <input type="text" id="oname" name="oname"><br>
+                <label for="email">Email : </label><br>
+                <input type="email" id="email" name="email"><br>
+                <label for="password">Set your password : </label><br>
+                <input type="password" id="password" name="password"><br>
+                 <label for="confirm-password">Confirm your password : </label><br>
+                <input type="password" id="confirm-password" name="confirm-password"><br>
+            </fieldset>
+
+            <fieldset class="frm">
+                <Legend><b>Education background : </b></Legend>
+                <label for="primary">Primary school</label><br>
+                <input type="text" id="primary" name="primary"><br>
+                <label for="ordinary" >Ordinary school</label><br>
+                <input type="text" id="ordinary" name="ordinary"><br>
+                <label for="advance">Advance / Diploma school</label><br>
+                <input type="text" id="advance" name="advance"><br>
+            </fieldset>
+
+            <fieldset class="frm">
+                <Legend><b>Resident and nationality</b></Legend>
+                <label for="country">Current country</label><br>
+                <input type="text" id="country" name="country"><br>
+                <label for="region">Region</label><br>
+                <input type="text" id="region" name="region"><br>
+                <label for="ward">Ward</label><br>
+                <input type="text" id="ward" name="ward"><br>
+                <label for="village">Village</label><br>
+                <input type="text" id="village" name="village"><br>
+            </fieldset>
+
+            <fieldset class="frm">
+                <Legend><b>Demographic and marital status</b></Legend>
+                <label for="single">Single</label>
+                <input type="checkbox" id="single" name="village"><br>
+                <label for="maried">Maried</label>
+                <input type="checkbox" id="maried" name="maried"><br><br>
+                <label for="fname">Date of birth</label><br><br>
+                <input type="date" id="date" name="date"><br>
+            </fieldset>
+            <button type="submit" value="submit" style="width:100px; margin-left: 40px; background: grey;">Submit</button>
+        </form>
+    </div>
+
+    <div class="footer">
+
+    </div>
+
+</body>
+
+<script>
+const myForm = document.getElementById('primary-form');
+const container = document.getElementById('receive-response');
+//const body = document.getElementById('body');
+
+
+myForm.addEventListener('submit', myFunction)
+function myFunction(e) {
+    e.preventDefault();
+
+    // 2. Grab the data from the form
+    const formData = new FormData(myForm);
+
+    // 3. Send it to PHP
+    const info = {
+        method: 'POST',
+        body: formData
+    }
+    fetch('register.php', info)
+    .then(response => response.text())
+    .then(phpEcho => {
+        // 4. Create the NEW div
+        const newDiv = document.createElement('div');
+        newDiv.className = 'result-style';
+        newDiv.style.width = "100%";
+        newDiv.style.height = "50%";
+        newDiv.style.background = "green";
+        newDiv.style.border = "1px solid black";
+        newDiv.style.fontSize = "40px";
+
+
+
+        container.style.height = "auto";
+        container.style.display = "absolute";
+        newDiv.style.top = "400px";
+
+
+
+        newDiv.innerHTML = phpEcho;
+
+
+       container.innerHTML = ''; 
+        //body.removeChild(container);
+        container.appendChild(newDiv);
+        
+        // Optional: Reset the form
+        myForm.reset();
+    })
+    .catch(error => console.error('Error:', error));
+};
+</script>
+</html>
