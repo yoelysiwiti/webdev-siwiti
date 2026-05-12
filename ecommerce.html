@@ -447,6 +447,7 @@
 
       .product-img {
         height: 220px;
+        width: 100%;
       }
 
       .add-to-cart {
@@ -572,8 +573,7 @@
 
     <p onclick="displayCart()" class="pointer">
       <i class="fa-solid fa-cart-shopping"></i>
-      <span data-key="mycart">My Cart
-      </span>
+      <span data-key="mycart">My Cart</span>
     </p>
 
     <p class="pointer">
@@ -902,7 +902,7 @@
 
     menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
     menu.style.left = `${left}%`;
-    menu.style.top = `${top}px`;
+    menu.style.top = `${top}%`;
 
 
   }
@@ -921,7 +921,7 @@
 
   function displayCart() {
 
-    toggleMenu(250, 50, 'menu-my-cart');
+    toggleMenu(20, 55, 'menu-my-cart');
 
     let cartContainer = document.getElementById("menu-my-cart-carts");
 
@@ -932,13 +932,22 @@
       let cartItem = document.createElement("div");
 
       cartItem.className = "cart-item";
-      cartItem.style.width = "80%";
+      cartItem.style.width = "100%";
+      cartItem.style.padding = "0";
+      cartItem.style.margin = "0";
+      cartItem.style.borderRadius = "10px";
+      cartItem.style.background = "#ebecd9";
+
+
+
 
       cartItem.innerHTML = `
-            <img src="${item.image}" width="480">
-            <h3 background="red">${item.name}</h3>
-            <p>${item.para}</p>
+            <img src="${item.image}"style="border-radius: 10px; width:80%; padding:2%">
+            <h3>${item.name}</h3>
+            <p style="border-radius: 10px; width:97%; margin-left:2%; background:yellow;";>${item.para}</p>
             <p>$${item.price}</p>
+            <p style="border-radius: 10px; width:30%; margin-left:2%; background:rgb(19, 236, 19); padding:2%";>Remove from cart</>
+
         `;
 
       cartContainer.appendChild(cartItem);
