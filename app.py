@@ -6,8 +6,5 @@ print("Siwiti, this is app.py")
 
 @app.route("/")
 
-def create_form():
-    print("My name is yoeli siwiti, the king of the jungle")
-
 def home():
     return "Hello from Render Flask app!"
