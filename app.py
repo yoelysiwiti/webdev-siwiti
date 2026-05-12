@@ -6,8 +6,9 @@ print("Siwiti, this is app.py")
 
 @app.route("/")
 
-
+def call message();
+    return "Hello from Render Flask app, the messages from call message()";
 def home():
-    message =  "Hello from Render Flask app, the messages variable declaredSS";
+    call_message();
     return message;
 
