@@ -85,7 +85,7 @@
         text-decoration: none;
         color: inherit;
     }
-    
+
     .main {
         width: 100%;
     }
@@ -161,7 +161,7 @@
         width: 33%;
     }
 
-    .upper-main-logo img{
+    .upper-main-logo img {
         width: 120px;
         height: 120px;
         border-radius: 50%;
@@ -200,12 +200,13 @@
         padding: 10px;
     }
 
-        .card-image p{
-            padding: 10px;
-            background: #a6f0ec;
-            border-radius: 10px;
-font-size: 20px;
+    .card-image p {
+        padding: 10px;
+        background: #a6f0ec;
+        border-radius: 10px;
+        font-size: 20px;
     }
+
     .card-image img {
         width: 100%;
         height: auto;
@@ -373,7 +374,7 @@ font-size: 20px;
 
     .cart-icon,
     .material-symbols-outlined,
-    .login-icom {
+    .login-icom, .fa-user-tie, .fa-building{
         font-size: 70px;
         margin: 0;
     }
@@ -442,7 +443,7 @@ font-size: 20px;
             height: 9vh;
         }
 
-        
+
 
         .font-larger {
             font-size: 18px;
@@ -529,16 +530,16 @@ font-size: 20px;
 
         .cart-icon,
         .material-symbols-outlined,
-        .login-icom {
+        .login-icom, .fa-user-tie, .fa-building {
             font-size: 50px;
         }
 
-    .nav-links{
-        width: 55%;
-        right: 10px;
-        left: 45%;
-        top: 8%;
-    }
+        .nav-links {
+            width: 55%;
+            right: 10px;
+            left: 45%;
+            top: 8%;
+        }
     }
 
     /*=================SMALL MOBILE=====================*/
@@ -573,79 +574,81 @@ font-size: 20px;
             font-size: 14px;
         }
     }
-.services-heading{
-    background: #96a1ca;
-    width: 90%;
-    height: 70px;
-    border-radius: 10px;
-    margin: 0 0 0 5%;
-    text-align: center;
-    font-size: 30px;
-}
-/*=============FOOTER==============*/
-.footer {
-    width: 100%;
-    height: 160px;
-    background: #222;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 4px 6px;
-    gap: 45%;
-    flex-wrap: wrap;
-    font-family: 'Poppins', sans-serif;
-}
 
-.footer-left,
-.footer-right {
-    flex: 1;
-    min-width: 250px;
-}
+    .services-heading {
+        background: #96a1ca;
+        width: 90%;
+        height: 70px;
+        border-radius: 10px;
+        margin: 0 0 0 5%;
+        text-align: center;
+        font-size: 30px;
+    }
 
-.footer h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #ffffff;
-}
-
-.footer p {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 17px;
-    margin: 12px 0;
-    color: #d6d6d6;
-}
-
-.footer i {
-    font-size: 20px;
-    color: #4da3ff;
-    transition: 0.3s ease;
-}
-
-.footer p:hover i {
-    transform: scale(1.1);
-}
-
-@media(max-width: 768px) {
+    /*=============FOOTER==============*/
     .footer {
-        flex-direction: column;
-        height: 100%;
-        padding: 0;
-        margin: 0;
+        width: 100%;
+        height: 160px;
+        background: #222;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 4px 6px;
+        gap: 45%;
+        flex-wrap: wrap;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .footer-left,
+    .footer-right {
+        flex: 1;
+        min-width: 250px;
     }
 
     .footer h3 {
-        font-size: 22px;
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #ffffff;
     }
 
     .footer p {
-        font-size: 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 17px;
+        margin: 12px 0;
+        color: #d6d6d6;
     }
-}
+
+    .footer i {
+        font-size: 20px;
+        color: #4da3ff;
+        transition: 0.3s ease;
+    }
+
+    .footer p:hover i {
+        transform: scale(1.1);
+    }
+
+    @media(max-width: 768px) {
+        .footer {
+            flex-direction: column;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer h3 {
+            font-size: 22px;
+        }
+
+        .footer p {
+            font-size: 12px;
+        }
+    }
 </style>
-    
+
 
 <body>
     <nav class="navbar">
@@ -671,8 +674,7 @@ font-size: 20px;
         <!-- ABOUT US -->
         <div class="about-us" id="about-us">
             <div class="about-us-header">
-                <i class="fa-solid fa-chevron-left" id="circle"
-                    onclick="showMenu('about-us')"></i>
+                <i class="fa-solid fa-chevron-left" id="circle" onclick="showMenu('about-us')"></i>
                 <h2>Welcome to Our Platform</h2>
 
             </div>
@@ -707,13 +709,16 @@ font-size: 20px;
                 <img src="./images/advertise.png">
 
 
-<p>
-    We create modern, responsive, and professional websites designed to help your business grow online. From
-    e-commerce platforms and registration systems to secure login pages and custom web applications, we focus on
-    delivering fast performance, attractive design, and smooth user experience across all devices.
-</p> 
-<p>We also develop school and college result management systems, blog websites, and other custom digital solutions tailored to your
-    needs. Our goal is to turn your ideas into powerful, secure, and effective online platforms.</p>
+                <p>
+                    We create modern, responsive, and professional websites designed to help your business grow online.
+                    From
+                    e-commerce platforms and registration systems to secure login pages and custom web applications, we
+                    focus on
+                    delivering fast performance, attractive design, and smooth user experience across all devices.
+                </p>
+                <p>We also develop school and college result management systems, blog websites, and other custom digital
+                    solutions tailored to your
+                    needs. Our goal is to turn your ideas into powerful, secure, and effective online platforms.</p>
 
             </div>
 
@@ -747,7 +752,7 @@ font-size: 20px;
             </div>
         </div>
 
-<div class="services-heading"><i class="fa-solid fa-handshake"></i> Services we offer</div>
+        <div class="services-heading"><i class="fa-solid fa-handshake"></i> Services we offer</div>
 
         <div class="card-minor">
             <div class="card-minor-text">
@@ -805,12 +810,10 @@ font-size: 20px;
 
         </div>
 
-                <div class="card-minor">
+        <div class="card-minor">
             <div class="card-minor-text">
                 <h2>Busness websites</h2>
-
                 <p><i class="fa-solid fa-building"></i></p>
-
                 <p class="green">Fast and user-friendly websites for growing businesses.</p>
                 <p class="yellow">Clean website layouts with smooth navigation experiences.</p>
                 <p class="green">Reliable and attractive websites tailored for your business goals.</p>
@@ -823,7 +826,24 @@ font-size: 20px;
             </div>
 
         </div>
-        
+
+        <div class="card-minor">
+            <div class="card-minor-text">
+                <h2>portfolio websites</h2>
+                <p><i class="fa-solid fa-user-tie"></i></p>
+                <p class="green">Professional portfolio websites that highlight your skills and achievements.</p>
+                <p class="yellow">Clean and attractive portfolios for personal branding success.</p>
+                <p class="green">Fast and visually appealing portfolio websites with clean user experiences.</p>
+                <p class="green">Professional portfolio designs that help attract clients and opportunities.</p>
+                <p class="green"><a href="portfolio.html">Click to view <b>demo</b></a></p>
+            </div>
+
+            <div class="card-minor-image">
+                <img src="./images/bs-portfolio.png">
+            </div>
+
+        </div>
+
         <div class="popular-links">
             <div class="popular-links-haeding">
                 <h2>Popular Sites</h2>
@@ -895,43 +915,44 @@ font-size: 20px;
         </div>
     </div>
 
-<div class="footer">
+    <div class="footer">
 
-    <div class="footer-left">
-        <h3>Contacts</h3>
+        <div class="footer-left">
+            <h3>Contacts</h3>
 
-        <p>
-            <i class="fa-solid fa-envelope"></i>
-yoelysiwiti2@gmail.com</p>
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+                yoelysiwiti2@gmail.com
+            </p>
 
-        <p>
-            <i class="fa-solid fa-phone"></i>
-            +255 742 804 034
-        </p>
+            <p>
+                <i class="fa-solid fa-phone"></i>
+                +255 742 804 034
+            </p>
+        </div>
+
+        <div class="footer-right">
+            <h3>Follow Us</h3>
+
+            <p>
+                <i class="fa-brands fa-facebook"></i>
+                Facebook
+            </p>
+
+            <p>
+                <i class="fa-brands fa-twitter"></i>
+                Twitter
+            </p>
+        </div>
+
     </div>
-
-    <div class="footer-right">
-        <h3>Follow Us</h3>
-
-        <p>
-            <i class="fa-brands fa-facebook"></i>
-            Facebook
-        </p>
-
-        <p>
-            <i class="fa-brands fa-twitter"></i>
-            Twitter
-        </p>
-    </div>
-
-</div>
 
 </body>
 <script>
     function showMenu(idd) {
         let menu = document.getElementById(idd);
         menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-}
+    }
 </script>
 
 </html>
