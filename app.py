@@ -10,4 +10,3 @@ def create_form():
 def home():
     create_form()
     return "Hello from Render Flask app!"
-home()
