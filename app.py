@@ -8,6 +8,6 @@ print("Siwiti, this is app.py")
 
 
 def home():
-    message =  "Hello from Render Flask app!";
+    message =  "Hello from Render Flask app, the messages variable declaredSS";
     return message;
 
