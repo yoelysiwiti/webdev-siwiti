@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route("/")
 
 def message_add():
-    return "This is mesage python, removed print above"
+    return "This is mesage python, removed print above, now"
 
 def home():
     message_add()
