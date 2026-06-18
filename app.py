@@ -19,5 +19,5 @@ def log_ip():
     # No UI, just silent response
     return "", 204  # 204 = No Content
 
-if __name__ == "__main__":
+if __name__ == "__app__":
     app.run()
