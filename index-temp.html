@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Upload & Capture</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; text-align: center; }
+        video, canvas { display: block; margin: 10px auto; border-radius: 8px; }
+        .section { margin-bottom: 30px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; display: inline-block; width: 80%; max-width: 500px; }
+    </style>
+</head>
+<body>
+
+    <h1>Photo Upload & Capture App</h1>
+
+    <!-- SECTION 1: Upload Existing Photo -->
+    <div class="section">
+        <h3>Upload Photo from Device</h3>
+        <input type="file" id="fileInput" accept="image/*">
+        <br><br>
+        <button onclick="uploadFile()">Send Uploaded Photo</button>
+    </div>
+
+    <!-- SECTION 2: Capture from Webcam -->
+    <div class="section">
+        <h3>Capture from Webcam</h3>
+        <video id="video" width="320" height="240" autoplay></video>
+        <button onclick="capturePhoto()">Capture & Send</button>
+        <canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
+    </div>
+
+    <p id="status" style="font-weight: bold;"></p>
+
+    <script>
+        // REPLACE THIS with your server URL:
+        // - Use 'http://127.0.0.1:5000/upload' if testing on the same PC.
+        // - If using ngrok later, use your ngrok public URL here.
+        const BACKEND_URL = 'http://192.168.124.73:5000/upload';
+
+        // Start the webcam automatically when page loads
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                document.getElementById('video').srcObject = stream;
+            })
+            .catch(err => {
+                console.error("Webcam access denied or unavailable:", err);
+            });
+
+        // 1. Handle File Upload
+        async function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files.length === 0) {
+                alert('Please select a file first!');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('photo', fileInput.files[0]);
+
+            sendToServer(formData);
+        }
+
+        // 2. Handle Webcam Capture
+        async function capturePhoto() {
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+
+            // Draw current video frame onto canvas
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Convert canvas image to a Blob/File object
+            canvas.toBlob(async (blob) => {
+                const formData = new FormData();
+                formData.append('photo', blob, 'webcam_capture.jpg');
+
+                sendToServer(formData);
+            }, 'image/jpeg');
+        }
+
+        // Common function to send FormData to Flask
+        async function sendToServer(formData) {
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = 'Sending...';
+            statusEl.style.color = 'blue';
+
+            try {
+                const response = await fetch(BACKEND_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    statusEl.textContent = 'Success: ' + result.message;
+                    statusEl.style.color = 'green';
+                } else {
+                    statusEl.textContent = 'Error: ' + result.error;
+                    statusEl.style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Network error:', error);
+                statusEl.textContent = 'Failed to connect to backend server.';
+                statusEl.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
